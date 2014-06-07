@@ -30,6 +30,10 @@
 		$scope.go = function(path) {
 			$location.path(path);
 		}
+
+		$scope.refresh = function() {
+			
+		}
 	}]);
 
 	app.controller('ItemsCtrl', ['$scope', '$routeParams', '$location', function($scope, $routeParams, $location){
@@ -51,11 +55,25 @@
 		$scope.go = function(path) {
 			$location.path('/lists/'+$routeParams.listId+path);
 		}
+
+		$scope.refresh = function() {
+			
+		}
 	}]);
 
 	app.controller('ItemCtrl', ['$scope', '$routeParams', function($scope, $routeParams){
 		$scope.item = account[$routeParams.listId].items[$routeParams.itemId];
 
+		$scope.newItem = {};
+
+		$scope.updateItemAmount = function() {
+			this.item.amount = this.newItem.amount;
+			this.newItem = {};
+		}
+
+		$scope.refresh = function() {
+			
+		}
 	}]);
 
 	////////////////////////////////////
