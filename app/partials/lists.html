@@ -1,0 +1,39 @@
+<!-- List of lists within this account -->
+<!-- Refresh button -->
+<div class="container">
+<button type="button" class="btn btn-default pull-right"><span class="glyphicon glyphicon-refresh"></span></button>
+</div>
+<div class="list-group-item" ng-repeat="list in lists">
+	<h3>
+		<!-- Name of each list -->
+		{{ list.name }}
+
+		<button type="button" class="btn btn-danger pull-right" ng-click="deleteList($index)">Delete</button>
+		<button type="button" class="btn btn-primary pull-right" ng-click="go('/lists/'+$index)">View</button>
+
+	</h3>
+
+	<!-- Need to put amount of items in each list-->
+	<h5> amount : {{ list.items.length | number }}  </h5>
+</div>
+
+<!--  Add List Form -->
+<form name="addListForm" ng-submit="addList()">
+	
+	<!--  Add List Preview -->
+	<div class="list-group-item">
+		<h3>
+			<!-- Name of each list -->
+			{{ newList.name }}
+		</h3>
+	</div>
+
+  <!--  Add List Form -->
+  <h4>Add a new List</h4>
+  <fieldset class="form-group">
+  	<h4>Name: <textarea ng-model="newList.name" class="form-control" title="Name" required></textarea></h4>
+  </fieldset>
+  <fieldset class="form-group">
+    <input type="submit" class="btn btn-primary pull-right" value="Add" />
+  </fieldset>
+</form>

@@ -1,0 +1,18 @@
+$http({
+      url: serverUrl,
+      method: "GET",
+      params: {apikey: apiKey}
+    }).success(function(data) {
+      $scope.lists = data;
+    });
+
+    $scope.addList = function() {
+      $scope.lists.push(this.newList);
+      $http({
+        url: serverUrl,
+        method: "POST",
+        data: this.newList,
+        params: {apikey: apiKey}
+      })
+      this.newList = {};
+    }

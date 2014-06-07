@@ -1,0 +1,36 @@
+<!-- Page for one item view. This page will have name of the item and its amount
+	Also, it will have update form for its amount -->
+<!-- Refresh button -->
+<div class="container">
+<button type="button" class="btn btn-default pull-right"><span class="glyphicon glyphicon-refresh"></span></button>
+</div>
+<div class="list-group-item">
+	<h3>
+		<!-- Name of each item -->
+		{{ item.name }}  
+	</h3>
+
+	<!-- Need to put amount of each item-->
+	<h5> amount : {{ item.amount | number }} </h5>
+</div>
+
+<!--  Update Item Form -->
+<form name="updateItemForm" ng-submit="updateItem()">
+	
+	<!--  Add Item Preview -->
+	<div class="list-group-item" >
+		<h5>{{ newItem.amount }}</h5>
+	</div>
+
+  <!--  Add Item Form -->
+  <h4>Update Item Amount</h4>
+  <fieldset class="form-group">
+  	<h4>
+  		Item Amount:   <input ng-model="newItem.amount" class="form-control" type="number" placeholder="" title="Amount"></textarea>
+  	</h4>
+  </fieldset>
+  <fieldset class="form-group">
+    <input type="submit" class="btn btn-primary pull-right" value="Update Item" />
+  </fieldset>
+</form>
+
